@@ -28,9 +28,8 @@ jobs:
           credentials_json: ${{ secrets.GCP_SA_KEY }}
 
       # Configure docker to use Artifact Registry
-      - name: Configure Docker for Artifact Registry
-        run: |
-          gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev
+      - name: Configure Docker for Google Cloud
+        run: gcloud auth configure-docker docker.pkg.dev
 
       # Build and push the Docker image
       - name: Build and Push image
